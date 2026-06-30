@@ -1,0 +1,151 @@
+{
+  "What is the Identify function in NIST CSF 2.0?": {
+    "confidence": 0.975,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What is the Squiblydoo attack technique?": {
+    "confidence": 0.91,
+    "passed": true,
+    "healing_triggered": true,
+    "healing_attempts": 1,
+    "strategies_used": [
+      "A-query_rewrite"
+    ]
+  },
+  "What is Registry Run Keys persistence technique?": {
+    "confidence": 0.91,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What is the Protect function in NIST CSF 2.0?": {
+    "confidence": 0.975,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What is the purpose of the ATT&CK Navigator?": {
+    "confidence": 0.91,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "How does access control relate to identity management across frameworks?": {
+    "confidence": 0.905,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What are all the prevention steps for SQL injection mentioned across the documents?": {
+    "confidence": 0.975,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "Explain how MITRE ATT&CK techniques connect to NIST CSF protect controls": {
+    "confidence": 0.645,
+    "passed": false,
+    "healing_triggered": true,
+    "healing_attempts": 3,
+    "strategies_used": [
+      "A-query_rewrite",
+      "B-expand_mmr",
+      "C-decomposition"
+    ]
+  },
+  "What is the Govern function in NIST CSF 2.0?": {
+    "confidence": 0.975,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What is the Recover function in NIST CSF 2.0?": {
+    "confidence": 0.95,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What is A03 Injection in OWASP Top 10?": {
+    "confidence": 0.975,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What is the difference between Identify and Protect functions?": {
+    "confidence": 0.91,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What detection methods are recommended for brute force attacks?": {
+    "confidence": 0.975,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "How should an organization respond to a detected security incident according to NIST?": {
+    "confidence": 0.975,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What is the relationship between access control failures and broken authentication?": {
+    "confidence": 0.91,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What is A05 Security Misconfiguration?": {
+    "confidence": 0.91,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What persistence techniques besides Registry Run Keys are mentioned in MITRE ATT&CK?": {
+    "confidence": 0.975,
+    "passed": true,
+    "healing_triggered": true,
+    "healing_attempts": 2,
+    "strategies_used": [
+      "A-query_rewrite",
+      "B-expand_mmr"
+    ]
+  },
+  "How does the Detect function in NIST CSF relate to continuous monitoring?": {
+    "confidence": 0.91,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "What is the difference between BM25 keyword search relevance and a true vulnerability definition?": {
+    "confidence": 0.875,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  },
+  "Summarize how an organization should prioritize cybersecurity risk according to NIST CSF": {
+    "confidence": 0.91,
+    "passed": true,
+    "healing_triggered": false,
+    "healing_attempts": 0,
+    "strategies_used": []
+  }
+}

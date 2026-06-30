@@ -1,0 +1,57 @@
+# Version control
+.git
+.gitignore
+
+# Virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Environment / secrets
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+aria_run.log
+docker-build.log
+pip-install.log
+
+# Evaluation results (regenerated at runtime)
+healing_memory.json
+healing_rate_results.json
+judge_comparison_results.json
+hedging_comparison_results.json
+eval.log
+
+# Evaluation data
+data/eval/
+
+# Pre-built indices (we COPY chroma_db explicitly; skip .pkl)
+*.pkl
+
+# Docker
+Dockerfile
+docker-compose*.yml
+
+# Docs
+README.md
+Installation steps.md
+.agents/
+
+# Comparison / eval scripts (not needed at runtime)
+baseline_compare.py
+compare_hedging.py
+compare_judge.py
+check_loose_answers.py
+measure_healing_rate.py

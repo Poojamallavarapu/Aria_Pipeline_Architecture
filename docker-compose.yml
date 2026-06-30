@@ -1,0 +1,39 @@
+# docker-compose.yml – One command to build and run ARIA locally
+# Usage:  docker compose up --build
+#
+# NOTE: On Hugging Face Spaces, docker-compose is NOT used.
+#       HF builds from the Dockerfile directly and injects
+#       secrets via the Spaces Secrets UI.
+
+services:
+  aria:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aria
+    ports:
+      - "8000:8000"   # FastAPI backend
+      - "7860:7860"   # Streamlit frontend (HF Spaces port)
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OLLAMA_HOST=http://localhost:11434
+      - OLLAMA_MODELS=/home/user/.ollama/models
+    env_file:
+      - .env
+    volumes:
+      # Persist Ollama model weights across container restarts.
+      # Must match OLLAMA_MODELS env var — user home, NOT /root.
+      - ollama_data:/home/user/.ollama/models
+      # Persist ChromaDB vector index across restarts.
+      # Must match the working directory used by the app.
+      - chroma_data:/home/user/app/chroma_db
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          # Llama 3.1 8B quantised needs ~5-6 GB RAM on CPU
+          memory: 12G
+
+volumes:
+  ollama_data:
+  chroma_data:

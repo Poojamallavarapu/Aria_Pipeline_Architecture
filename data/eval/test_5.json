@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is Broken Access Control?",
+    "ground_truth": "Broken Access Control is an OWASP Top 10 vulnerability where restrictions on authenticated users are not properly enforced."
+  },
+  {
+    "question": "What is T1059 Command-Line Interface?",
+    "ground_truth": "T1059 is a MITRE ATT&CK technique where adversaries use command-line interfaces to execute commands."
+  },
+  {
+    "question": "What is Server-Side Request Forgery (SSRF)?",
+    "ground_truth": "SSRF is a vulnerability that allows attackers to force a server to make unintended requests."
+  },
+  {
+    "question": "How does NIST recommend incident response?",
+    "ground_truth": "NIST recommends preparation, detection, containment, eradication, recovery, and lessons learned."
+  },
+  {
+    "question": "What is privilege escalation?",
+    "ground_truth": "Privilege escalation is the process of gaining higher permissions than originally granted."
+  }
+]

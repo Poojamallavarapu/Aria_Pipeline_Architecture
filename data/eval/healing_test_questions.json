@@ -1,0 +1,22 @@
+[
+  "What is the Identify function in NIST CSF 2.0?",
+  "What is the Squiblydoo attack technique?",
+  "What is Registry Run Keys persistence technique?",
+  "What is the Protect function in NIST CSF 2.0?",
+  "What is the purpose of the ATT&CK Navigator?",
+  "How does access control relate to identity management across frameworks?",
+  "What are all the prevention steps for SQL injection mentioned across the documents?",
+  "Explain how MITRE ATT&CK techniques connect to NIST CSF protect controls",
+  "What is the Govern function in NIST CSF 2.0?",
+  "What is the Recover function in NIST CSF 2.0?",
+  "What is A03 Injection in OWASP Top 10?",
+  "What is the difference between Identify and Protect functions?",
+  "What detection methods are recommended for brute force attacks?",
+  "How should an organization respond to a detected security incident according to NIST?",
+  "What is the relationship between access control failures and broken authentication?",
+  "What is A05 Security Misconfiguration?",
+  "What persistence techniques besides Registry Run Keys are mentioned in MITRE ATT&CK?",
+  "How does the Detect function in NIST CSF relate to continuous monitoring?",
+  "What is the difference between BM25 keyword search relevance and a true vulnerability definition?",
+  "Summarize how an organization should prioritize cybersecurity risk according to NIST CSF"
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is A01 Broken Access Control?",
+    "ground_truth": "Broken Access Control occurs when restrictions on what authenticated users are allowed to do are not properly enforced, allowing attackers to access unauthorized functionality or data."
+  },
+  {
+    "question": "What is T1059 Command-Line Interface?",
+    "ground_truth": "Command-Line Interface is a technique where adversaries interact with systems via command-line interfaces to execute commands and perform actions."
+  },
+  {
+    "question": "What is the Identify function in NIST CSF 2.0?",
+    "ground_truth": "The Identify function helps determine the organization's current cybersecurity risks by understanding assets, suppliers, and related risks."
+  },
+  {
+    "question": "What is A02 Cryptographic Failures?",
+    "ground_truth": "Cryptographic Failures relate to failures in cryptography that often lead to exposure of sensitive data, previously known as Sensitive Data Exposure."
+  },
+  {
+    "question": "What is the Squiblydoo attack technique?",
+    "ground_truth": "Squiblydoo is a technique using regsvr32.exe to download and execute scripts from the internet, bypassing application whitelisting."
+  },
+  {
+    "question": "What is Registry Run Keys persistence technique?",
+    "ground_truth": "Adversaries add programs to registry run keys or startup folders to maintain persistence, causing the program to execute when a user logs in."
+  },
+  {
+    "question": "How can SQL injection be prevented?",
+    "ground_truth": "SQL injection can be prevented through input validation, parameterized queries, and using safe APIs that avoid the interpreter entirely."
+  },
+  {
+    "question": "What is the Protect function in NIST CSF 2.0?",
+    "ground_truth": "The Protect function involves implementing safeguards to manage cybersecurity risks, including identity management, access control, and data security."
+  },
+  {
+    "question": "What are mitigations for Brute Force attacks?",
+    "ground_truth": "Brute Force can be mitigated with account lockout policies and multi-factor authentication."
+  },
+  {
+    "question": "What is the purpose of the ATT&CK Navigator?",
+    "ground_truth": "ATT&CK Navigator is a tool to visualize and compare coverage of ATT&CK techniques, useful for comparing groups, defensive coverage, and prioritizing gaps."
+  }
+]

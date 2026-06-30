@@ -1,0 +1,114 @@
+[
+  {
+    "question": "What is CVE-2024-44000?",
+    "failed_dimension": "answer_relevancy",
+    "strategy_used": "B-expand_mmr",
+    "confidence_before": 0.4525,
+    "confidence_after": 0.69,
+    "improved": true
+  },
+  {
+    "question": "What is CVE-2024-44000?",
+    "failed_dimension": "context_precision",
+    "strategy_used": "B-expand_mmr",
+    "confidence_before": 0.69,
+    "confidence_after": 0.69,
+    "improved": false
+  },
+  {
+    "question": "What is CVE-2024-44000?",
+    "failed_dimension": "context_precision",
+    "strategy_used": "B-expand_mmr",
+    "confidence_before": 0.69,
+    "confidence_after": 0.69,
+    "improved": false
+  },
+  {
+    "question": "What is CVE-2024-44000?",
+    "failed_dimension": "answer_relevancy,context_precision",
+    "strategy_used": "A-query_rewrite",
+    "confidence_before": 0.4525,
+    "confidence_after": 0.44,
+    "improved": false
+  },
+  {
+    "question": "What is CVE-2024-44000?",
+    "failed_dimension": "answer_relevancy,context_precision",
+    "strategy_used": "B-expand_mmr",
+    "confidence_before": 0.44,
+    "confidence_after": 0.69,
+    "improved": true
+  },
+  {
+    "question": "What is CVE-2024-44000?",
+    "failed_dimension": "context_precision",
+    "strategy_used": "C-decomposition",
+    "confidence_before": 0.69,
+    "confidence_after": 0.58,
+    "improved": false
+  },
+  {
+    "question": "what are  threats and attacks ",
+    "failed_dimension": "answer_relevancy",
+    "strategy_used": "A-query_rewrite",
+    "confidence_before": 0.68,
+    "confidence_after": 0.3,
+    "improved": false
+  },
+  {
+    "question": "what are  threats and attacks ",
+    "failed_dimension": "faithfulness",
+    "strategy_used": "B-expand_mmr",
+    "confidence_before": 0.3,
+    "confidence_after": 0.85,
+    "improved": true
+  },
+  {
+    "question": "What is the Squiblydoo attack technique?",
+    "failed_dimension": "faithfulness",
+    "strategy_used": "A-query_rewrite",
+    "confidence_before": 0.655,
+    "confidence_after": 0.91,
+    "improved": true
+  },
+  {
+    "question": "Explain how MITRE ATT&CK techniques connect to NIST CSF protect controls",
+    "failed_dimension": "faithfulness",
+    "strategy_used": "A-query_rewrite",
+    "confidence_before": 0.645,
+    "confidence_after": 0.645,
+    "improved": false
+  },
+  {
+    "question": "Explain how MITRE ATT&CK techniques connect to NIST CSF protect controls",
+    "failed_dimension": "faithfulness",
+    "strategy_used": "B-expand_mmr",
+    "confidence_before": 0.645,
+    "confidence_after": 0.645,
+    "improved": false
+  },
+  {
+    "question": "Explain how MITRE ATT&CK techniques connect to NIST CSF protect controls",
+    "failed_dimension": "faithfulness",
+    "strategy_used": "C-decomposition",
+    "confidence_before": 0.645,
+    "confidence_after": 0.645,
+    "improved": false
+  },
+  {
+    "question": "What persistence techniques besides Registry Run Keys are mentioned in MITRE ATT&CK?",
+    "failed_dimension": "faithfulness",
+    "strategy_used": "A-query_rewrite",
+    "confidence_before": 0.68,
+    "confidence_after": 0.655,
+    "improved": false
+  },
+  {
+    "question": "What persistence techniques besides Registry Run Keys are mentioned in MITRE ATT&CK?",
+    "failed_dimension": "faithfulness",
+    "strategy_used": "B-expand_mmr",
+    "confidence_before": 0.655,
+    "confidence_after": 0.975,
+    "improved": true
+  }
+]
