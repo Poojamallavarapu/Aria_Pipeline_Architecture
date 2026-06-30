@@ -73,7 +73,6 @@ COPY --chown=user:user api/          ./api/
 COPY --chown=user:user src/          ./src/
 COPY --chown=user:user frontend/     ./frontend/
 COPY --chown=user:user data/         ./data/
-COPY --chown=user:user scripts/      ./scripts/
 COPY --chown=user:user build_bm25.py .
 COPY --chown=user:user start.sh      .
 
