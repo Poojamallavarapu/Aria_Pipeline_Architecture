@@ -1,12 +1,4 @@
----
-title: ARIA – Self-Healing Cybersecurity RAG
-emoji: 🛡️
-colorFrom: blue
-colorTo: gray
-sdk: docker
-app_port: 7860
-pinned: false
----
+
 
 # ARIA – Adaptive Retrieval Intelligence Architecture
 
@@ -20,13 +12,3 @@ ARIA is a production-grade, self-healing cybersecurity RAG assistant designed fo
 - **Agentic Self-Healing Engine**: Automatically diagnoses score failures and dynamically applies targeted healing strategies (Query Rewriting, Retrieval Expansion + MMR, Query Decomposition) to fix answers.
 - **Langfuse Tracing**: Full end-to-end tracing of the pipeline layers (retrieval, generation, evaluation, healing loops).
 
-## Local Running Instructions
-
-To build and run this container locally:
-
-```bash
-docker build -t aria-hf .
-docker run -p 7860:7860 -p 8000:8000 --env-file .env aria-hf
-```
-
-Open `http://localhost:7860` in your web browser.
