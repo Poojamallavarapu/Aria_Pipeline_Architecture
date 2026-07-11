@@ -10,7 +10,7 @@ import ollama
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-JUDGE_MODEL = "llama3.1:8b"
+JUDGE_MODEL = "llama3.2:3b"
 JUDGE_OPTIONS = {"temperature": 0.0}
 
 THRESHOLDS = {

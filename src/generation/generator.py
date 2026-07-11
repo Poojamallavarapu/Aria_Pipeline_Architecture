@@ -11,7 +11,7 @@ from src.retrieval.fusion import hybrid_retrieve
 from src.retrieval.reranker import rerank
 from src.evaluation.self_check import check_faithfulness
 
-MODEL_NAME = "llama3.1:8b"
+MODEL_NAME = "llama3.2:3b"  # llama3.1:8b was ~14min/response on cpu-basic; 1b is ~5× faster
 FAITHFULNESS_THRESHOLD = 0.6
 MAX_RETRIES = 2
 GENERATION_OPTIONS = {"temperature": 0.0}

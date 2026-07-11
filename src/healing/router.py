@@ -11,7 +11,7 @@ from src.healing.memory import summarize_strategy_success_rates
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-ROUTER_MODEL = "llama3.1:8b"
+ROUTER_MODEL = "llama3.2:3b"
 ROUTER_OPTIONS = {"temperature": 0.0}
 
 ALL_STRATEGIES = ["A-query_rewrite", "B-expand_mmr", "C-decomposition"]

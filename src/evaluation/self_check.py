@@ -6,7 +6,7 @@ Lightweight runtime faithfulness check for self-healing.
 import re
 import ollama
 
-JUDGE_MODEL = "llama3.1:8b"
+JUDGE_MODEL = "llama3.2:3b"
 
 
 def extract_score(text: str) -> float:
