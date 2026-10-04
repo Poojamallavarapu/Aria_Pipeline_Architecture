@@ -13,7 +13,7 @@ from src.generation.generator import build_context, build_prompt, MODEL_NAME
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-DECOMPOSE_OPTIONS = {"temperature": 0.0}
+DECOMPOSE_OPTIONS = {"temperature": 0.0, "num_predict": 150}
 
 
 def decompose_query(question: str) -> list[str]:

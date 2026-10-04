@@ -34,7 +34,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 GENERATION_OPTIONS = {"temperature": 0.0, "num_predict": 350}
-MAX_HEALING_ATTEMPTS = 3
+MAX_HEALING_ATTEMPTS = 1
 
 
 def _generate(query: str, chunks: list[dict], mode: str = "qa") -> str:
