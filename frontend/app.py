@@ -1,7 +1,7 @@
 """
 app.py
 Streamlit frontend for ARIA - Autonomous Risk & Incident Assistant.
-High-contrast, modern cybersecurity SOC theme with telemetry & self-healing diagnostics.
+Full main-page SOC dashboard layout designed for Hugging Face Spaces.
 """
 
 import streamlit as st
@@ -21,7 +21,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. High-Contrast Cybersecurity SOC Theme CSS
+# 2. Styling CSS (High-Contrast, Modern Cybersecurity SOC Theme)
 st.markdown("""
 <style>
     /* Global App Background */
@@ -30,19 +30,9 @@ st.markdown("""
         color: #F8FAFC;
     }
 
-    /* Force high contrast text across main container */
+    /* Force readable text colors */
     .stMarkdown, p, span, label, h1, h2, h3, h4, h5, h6 {
         color: #F8FAFC !important;
-    }
-
-    /* Sidebar background & text contrast */
-    section[data-testid="stSidebar"] {
-        background-color: #111827 !important;
-        border-right: 1px solid #1F2937;
-    }
-    
-    section[data-testid="stSidebar"] * {
-        color: #E2E8F0 !important;
     }
 
     /* Dark Mode Text Input Area */
@@ -66,7 +56,7 @@ st.markdown("""
         font-weight: 600 !important;
         border-radius: 8px !important;
         border: none !important;
-        padding: 8px 20px !important;
+        padding: 8px 16px !important;
         transition: all 0.2s ease !important;
     }
 
@@ -88,13 +78,16 @@ st.markdown("""
         font-weight: 700 !important;
     }
 
-    /* Custom Header Banner */
+    /* Header Styling */
     .header-banner {
         background: linear-gradient(90deg, #1E293B 0%, #0F172A 100%);
         border: 1px solid #334155;
         border-radius: 12px;
         padding: 20px 24px;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .header-title {
@@ -126,101 +119,96 @@ def check_backend_health():
         return False
 
 
-# 3. Sidebar Setup
-with st.sidebar:
-    st.markdown("## 🛡️ **ARIA Controls**")
-    st.caption("Self-Healing RAG Copilot")
+# 3. Main Header Banner with Live Status Badges
+backend_online = check_backend_health()
+status_badge = "🟢 ONLINE" if backend_online else "🟡 LOCAL READY"
 
-    st.markdown("---")
-
-    # Backend Connection Status
-    backend_online = check_backend_health()
-    if backend_online:
-        st.success("🟢 **Backend Status**: `ONLINE`")
-    else:
-        st.info("🟢 **Backend Status**: `READY`")
-
-    st.markdown("---")
-
-    # Mode Selection
-    st.markdown("### 🎯 **Analysis Mode**")
-    mode_selection = st.radio(
-        "Select Operation Mode:",
-        options=["qa", "triage"],
-        format_func=lambda m: "🔍 Knowledge Q&A" if m == "qa" else "🚨 SOC Incident Triage",
-        label_visibility="collapsed"
-    )
-
-    if mode_selection == "qa":
-        st.caption("💡 **Q&A Mode**: MITRE ATT&CK techniques, security controls, CVE details, and defensive concepts.")
-    else:
-        st.caption("🚨 **SOC Triage Mode**: Endpoint alerts, process logs, or anomalous command executions.")
-
-    st.markdown("---")
-
-    # Preset Sample Prompts for Interview Demos
-    st.markdown("### 🚀 **Demo Preset Prompts**")
-    st.caption("Click any preset to auto-load query:")
-
-    preset_clicked = None
-    if st.button("📌 MITRE T1059 (Command Line)", use_container_width=True):
-        preset_clicked = "What is MITRE ATT&CK T1059 (Command and Scripting Interpreter) and how can defenders mitigate it?"
-    if st.button("📌 Regsvr32 Suspicious Execution", use_container_width=True):
-        preset_clicked = "I am observing regsvr32.exe connecting to an unverified external domain on an enterprise endpoint. Is this malicious?"
-    if st.button("📌 OWASP API Security Top 10", use_container_width=True):
-        preset_clicked = "Explain the risk of Broken Object Level Authorization (BOLA) and how to prevent it."
-    if st.button("📌 Credential Dumping via LSASS", use_container_width=True):
-        preset_clicked = "How can a SOC team detect LSASS memory dumping using Sysmon logs?"
-
-    st.markdown("---")
-
-    # Architecture Overview Expander
-    with st.expander("ℹ️ **System Architecture**", expanded=False):
-        st.markdown("""
-        - **LLM Engine**: `Llama 3.2 3B` (Ollama)
-        - **Retrieval**: ChromaDB + BM25 Hybrid
-        - **Evaluation**: Faithfulness & Precision Gate
-        - **Self-Healing**: Query Reformulation & Dynamic Reranking
-        """)
-
-# 4. Main Page Header
-st.markdown("""
+st.markdown(f"""
 <div class="header-banner">
-    <div class="header-title">🛡️ ARIA — Autonomous Cybersecurity Copilot</div>
-    <div class="header-sub">Self-Healing RAG Engine • Incident Triage & Knowledge Intelligence</div>
+    <div>
+        <div class="header-title">🛡️ ARIA — Autonomous Cybersecurity Copilot</div>
+        <div class="header-sub">Self-Healing RAG Architecture • Incident Triage & Knowledge Intelligence</div>
+    </div>
 </div>
 """, unsafe_allow_html=True)
+
+# Status Pill Badges Row
+st_col1, st_col2, st_col3, st_col4 = st.columns(4)
+with st_col1:
+    st.markdown(f"**Backend Status**: `{status_badge}`")
+with st_col2:
+    st.markdown("**LLM Model**: `Llama 3.2 3B`")
+with st_col3:
+    st.markdown("**Vector Store**: `ChromaDB + BM25`")
+with st_col4:
+    st.markdown("**Self-Healing Engine**: `ACTIVE`")
+
+st.markdown("---")
 
 # Session State for Question Handling
 if "current_question" not in st.session_state:
     st.session_state.current_question = ""
 
-if preset_clicked:
-    st.session_state.current_question = preset_clicked
+# 4. Analysis Mode Selection (Main Canvas)
+st.markdown("### 🎯 **1. Select Analysis Mode**")
 
-# 5. Input Query Box (Containerized)
-with st.container(border=True):
-    st.markdown("### 📝 **Input Query / Observation**")
+mode_selection = st.radio(
+    "Select Mode:",
+    options=["qa", "triage"],
+    horizontal=True,
+    format_func=lambda m: "🔍 Knowledge Q&A Mode" if m == "qa" else "🚨 SOC Incident Triage Mode",
+    label_visibility="collapsed"
+)
 
-    input_placeholder = (
-        "e.g. What is T1059 Command-Line Interface and how to mitigate it?"
-        if mode_selection == "qa"
-        else "e.g. Observing regsvr32.exe executing remote scrobj.dll script on domain controller"
-    )
+if mode_selection == "qa":
+    st.info("💡 **Q&A Mode**: Ask about MITRE ATT&CK techniques, security controls, CVE details, and defensive best practices.")
+else:
+    st.warning("🚨 **SOC Triage Mode**: Input raw endpoint alerts, command logs, or anomalous behavior for rapid incident analysis.")
 
-    user_question = st.text_area(
-        "Enter query or incident log details below:",
-        value=st.session_state.current_question,
-        placeholder=input_placeholder,
-        height=100,
-        label_visibility="collapsed"
-    )
+st.markdown("---")
 
-    col_btn, col_blank = st.columns([1, 3])
-    with col_btn:
-        submit_query = st.button("⚡ Run ARIA Analysis", type="primary", use_container_width=True)
+# 5. Quick Preset Prompts (Main Canvas Row)
+st.markdown("### 🚀 **2. Preset Demo Scenarios (One-Click Load)**")
+st.caption("Click any button below to instantly load a real-world scenario:")
 
-# 6. Pipeline Execution & Results Presentation
+p_col1, p_col2, p_col3, p_col4 = st.columns(4)
+
+if p_col1.button("📌 MITRE T1059 (Command Line)", use_container_width=True):
+    st.session_state.current_question = "What is MITRE ATT&CK T1059 (Command and Scripting Interpreter) and how can defenders mitigate it?"
+
+if p_col2.button("📌 Regsvr32 Execution Alert", use_container_width=True):
+    st.session_state.current_question = "I am observing regsvr32.exe connecting to an unverified external domain on an enterprise endpoint. Is this malicious?"
+
+if p_col3.button("📌 OWASP API Security Top 10", use_container_width=True):
+    st.session_state.current_question = "Explain the risk of Broken Object Level Authorization (BOLA) and how to prevent it."
+
+if p_col4.button("📌 LSASS Credential Dumping", use_container_width=True):
+    st.session_state.current_question = "How can a SOC team detect LSASS memory dumping using Sysmon logs?"
+
+st.markdown("---")
+
+# 6. Input Query Area
+st.markdown("### 📝 **3. Input Query / Incident Log**")
+
+input_placeholder = (
+    "e.g. What is T1059 Command-Line Interface and how to mitigate it?"
+    if mode_selection == "qa"
+    else "e.g. Observing regsvr32.exe executing remote scrobj.dll script on domain controller"
+)
+
+user_question = st.text_area(
+    "Enter query details:",
+    value=st.session_state.current_question,
+    placeholder=input_placeholder,
+    height=110,
+    label_visibility="collapsed"
+)
+
+col_submit, col_empty = st.columns([1, 3])
+with col_submit:
+    submit_query = st.button("⚡ Run ARIA Analysis", type="primary", use_container_width=True)
+
+# 7. Pipeline Execution & Results
 if submit_query:
     query_text = user_question.strip()
     if not query_text:
@@ -255,7 +243,7 @@ if submit_query:
 
         st.markdown("---")
 
-        # 7. Executive Telemetry Row
+        # 8. Executive Telemetry Row
         st.markdown("### 📊 **Executive Telemetry & Verification Audit**")
 
         m1, m2, m3, m4 = st.columns(4)
@@ -276,7 +264,7 @@ if submit_query:
 
         st.markdown("---")
 
-        # 8. Main Analysis & Self-Healing Diagnostics Split Layout
+        # 9. Main Analysis & Self-Healing Diagnostics Split Layout
         col_main, col_diag = st.columns([3, 2])
 
         with col_main:
@@ -331,6 +319,16 @@ if submit_query:
                             st.markdown(f"- 🔧 `{strat}`")
                 else:
                     st.success("✅ **Direct Verification Passed**: High-confidence context retrieved on initial turn. No healing intervention required.")
+
+# Sidebar optional extra reference
+with st.sidebar:
+    st.markdown("## 🛡️ **ARIA Info**")
+    st.caption("Self-Healing Cybersecurity RAG Engine")
+    st.markdown("""
+    - **LLM Engine**: Llama 3.2 3B
+    - **Vector Search**: ChromaDB + BM25
+    - **Evaluator**: RAGAS Metrics Gate
+    """)
 
 # Footer
 st.markdown("---")
