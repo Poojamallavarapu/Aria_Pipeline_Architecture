@@ -9,12 +9,15 @@ jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: ShoheiYokoyama/github-action-sync-to-huggingface@v0.1.2
-        with:
-          object-type: 'space'
-          space-id: 'miniorange/aria-cybersecurity'
-          hf-token: ${{ secrets.HF_TOKEN }}
+      - name: Push to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git config --global user.email "poojamallavarapu@users.noreply.github.com"
+          git config --global user.name "Pooja Mallavarapu"
+          git remote add space https://Poojamallavarapu:$HF_TOKEN@huggingface.co/spaces/miniorange/aria-cybersecurity
+          git push --force space main
