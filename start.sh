@@ -46,7 +46,7 @@ fi
 # 2. Pull required models (skip if already cached)
 # --------------------------------------------------
 echo "[2/4] Pulling LLM models (will skip if already cached)..."
-ollama pull llama3.1:8b      || echo "  WARNING: Could not pull llama3.1:8b – queries will fail."
+ollama pull llama3.2:3b      || echo "  WARNING: Could not pull llama3.2:3b – queries will fail."
 ollama pull nomic-embed-text || echo "  WARNING: Could not pull nomic-embed-text – embeddings will fail."
 
 # --------------------------------------------------
