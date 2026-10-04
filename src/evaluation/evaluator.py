@@ -14,9 +14,9 @@ JUDGE_MODEL = "llama3.2:3b"
 JUDGE_OPTIONS = {"temperature": 0.0, "num_predict": 80}
 
 THRESHOLDS = {
-    "faithfulness": 0.60,
-    "answer_relevancy": 0.50,
-    "context_precision": 0.50,
+    "faithfulness": 0.70,
+    "answer_relevancy": 0.70,
+    "context_precision": 0.60,
 }
 
 WEIGHTS = {
