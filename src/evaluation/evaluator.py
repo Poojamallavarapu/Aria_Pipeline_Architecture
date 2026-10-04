@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 JUDGE_MODEL = "llama3.2:3b"
-JUDGE_OPTIONS = {"temperature": 0.0}
+JUDGE_OPTIONS = {"temperature": 0.0, "num_predict": 80}
 
 THRESHOLDS = {
     "faithfulness": 0.70,

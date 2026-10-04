@@ -33,7 +33,7 @@ from src.observability.tracer import langfuse
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-GENERATION_OPTIONS = {"temperature": 0.0}
+GENERATION_OPTIONS = {"temperature": 0.0, "num_predict": 350}
 MAX_HEALING_ATTEMPTS = 3
 
 

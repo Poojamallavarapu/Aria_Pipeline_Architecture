@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 ROUTER_MODEL = "llama3.2:3b"
-ROUTER_OPTIONS = {"temperature": 0.0}
+ROUTER_OPTIONS = {"temperature": 0.0, "num_predict": 50}
 
 ALL_STRATEGIES = ["A-query_rewrite", "B-expand_mmr", "C-decomposition"]
 
