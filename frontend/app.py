@@ -1,7 +1,7 @@
 """
 app.py
 Streamlit frontend for ARIA - Autonomous Risk & Incident Assistant.
-Full main-page SOC dashboard layout with custom HTML badge styling and fixed download button CSS.
+Professional, corporate SOC dashboard layout with clean high-contrast styling.
 """
 
 import streamlit as st
@@ -21,7 +21,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. Styling CSS (High-Contrast, Modern Cybersecurity SOC Theme)
+# 2. Styling CSS (High-Contrast, Corporate SOC Theme)
 st.markdown("""
 <style>
     /* Global App Background */
@@ -58,7 +58,7 @@ st.markdown("""
         box-shadow: 0 0 0 1px #38BDF8 !important;
     }
 
-    /* General Button Styling (Default / Secondary / Preset Prompt Buttons) */
+    /* General Button Styling */
     .stButton > button, div[data-testid="stButton"] > button {
         background-color: #1E293B !important;
         background: #1E293B !important;
@@ -76,7 +76,7 @@ st.markdown("""
         color: #38BDF8 !important;
     }
 
-    /* Primary Action Button ("Ask ARIA") */
+    /* Primary Action Button ("Run ARIA Analysis") */
     .stButton > button[kind="primary"], button[kind="primary"] {
         background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
         color: #FFFFFF !important;
@@ -91,7 +91,7 @@ st.markdown("""
         transform: translateY(-1px) !important;
     }
 
-    /* Download Button Specific Styling Fix */
+    /* Download Button Styling */
     div[data-testid="stDownloadButton"] > button {
         background-color: #1E293B !important;
         background: #1E293B !important;
@@ -109,7 +109,7 @@ st.markdown("""
         border-color: #2563EB !important;
     }
 
-    /* Status Box Widget Header Fix */
+    /* Status Box Widget Header */
     div[data-testid="stStatusWidget"], summary, details {
         background-color: #1E293B !important;
         color: #F8FAFC !important;
@@ -130,7 +130,7 @@ st.markdown("""
         font-weight: 700 !important;
     }
 
-    /* Header Styling */
+    /* Header Banner Styling */
     .header-banner {
         background: linear-gradient(90deg, #1E293B 0%, #0F172A 100%);
         border: 1px solid #334155;
@@ -171,11 +171,11 @@ def check_backend_health():
 # 3. Main Header Banner & Clean Styled Status Bar
 backend_online = check_backend_health()
 status_color = "#10B981" if backend_online else "#F59E0B"
-status_text = "🟢 ONLINE" if backend_online else "🟡 LOCAL READY"
+status_text = "ONLINE" if backend_online else "LOCAL READY"
 
 st.markdown(f"""
 <div class="header-banner">
-    <div class="header-title">🛡️ ARIA — Autonomous Cybersecurity Copilot</div>
+    <div class="header-title">ARIA — Autonomous Cybersecurity Copilot</div>
     <div class="header-sub">Self-Healing RAG Architecture • Incident Triage & Knowledge Intelligence</div>
 </div>
 
@@ -190,7 +190,7 @@ st.markdown(f"""
         <span style="color: #94A3B8;">Vector Store:</span> <strong style="color: #818CF8; margin-left: 6px;">ChromaDB + BM25</strong>
     </div>
     <div style="background: #1E293B; border: 1px solid #334155; padding: 8px 16px; border-radius: 8px; font-size: 0.88rem;">
-        <span style="color: #94A3B8;">Self-Healing Engine:</span> <strong style="color: #34D399; margin-left: 6px;">⚡ ACTIVE</strong>
+        <span style="color: #94A3B8;">Self-Healing Engine:</span> <strong style="color: #34D399; margin-left: 6px;">ACTIVE</strong>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -202,45 +202,45 @@ if "current_question" not in st.session_state:
     st.session_state.current_question = ""
 
 # 4. Analysis Mode Selection
-st.markdown("### 🎯 **1. Select Analysis Mode**")
+st.markdown("### **1. Select Analysis Mode**")
 
 mode_selection = st.radio(
     "Select Mode:",
     options=["qa", "triage"],
     horizontal=True,
-    format_func=lambda m: "🔍 Knowledge Q&A Mode" if m == "qa" else "🚨 SOC Incident Triage Mode",
+    format_func=lambda m: "Knowledge Q&A Mode" if m == "qa" else "SOC Incident Triage Mode",
     label_visibility="collapsed"
 )
 
 if mode_selection == "qa":
-    st.info("💡 **Q&A Mode**: Query MITRE ATT&CK techniques, security controls, CVE details, and defensive concepts.")
+    st.info("**Q&A Mode**: Query MITRE ATT&CK techniques, security controls, CVE details, and defensive concepts.")
 else:
-    st.warning("🚨 **SOC Triage Mode**: Input raw endpoint alerts, command logs, or anomalous behavior for rapid incident analysis.")
+    st.warning("**SOC Incident Triage Mode**: Input raw endpoint alerts, command logs, or anomalous behavior for rapid incident analysis.")
 
 st.markdown("---")
 
 # 5. Quick Preset Prompts
-st.markdown("### 🚀 **2. Preset Demo Scenarios (One-Click Load)**")
-st.caption("Click any button below to instantly load a real-world scenario:")
+st.markdown("### **2. Preset Demo Scenarios**")
+st.caption("Click any button below to load a real-world scenario:")
 
 p_col1, p_col2, p_col3, p_col4 = st.columns(4)
 
-if p_col1.button("📌 MITRE T1059 (Command Line)", use_container_width=True):
+if p_col1.button("MITRE T1059 (Command Line)", use_container_width=True):
     st.session_state.current_question = "What is MITRE ATT&CK T1059 (Command and Scripting Interpreter) and how can defenders mitigate it?"
 
-if p_col2.button("📌 Regsvr32 Execution Alert", use_container_width=True):
+if p_col2.button("Regsvr32 Execution Alert", use_container_width=True):
     st.session_state.current_question = "I am observing regsvr32.exe connecting to an unverified external domain on an enterprise endpoint. Is this malicious?"
 
-if p_col3.button("📌 OWASP API Security Top 10", use_container_width=True):
+if p_col3.button("OWASP API Security Top 10", use_container_width=True):
     st.session_state.current_question = "Explain the risk of Broken Object Level Authorization (BOLA) and how to prevent it."
 
-if p_col4.button("📌 LSASS Credential Dumping", use_container_width=True):
+if p_col4.button("LSASS Credential Dumping", use_container_width=True):
     st.session_state.current_question = "How can a SOC team detect LSASS memory dumping using Sysmon logs?"
 
 st.markdown("---")
 
 # 6. Input Query Area
-st.markdown("### 📝 **3. Input Query / Incident Log**")
+st.markdown("### **3. Input Query / Incident Log**")
 
 input_placeholder = (
     "e.g. What is T1059 Command-Line Interface and how to mitigate it?"
@@ -258,23 +258,23 @@ user_question = st.text_area(
 
 col_submit, col_empty = st.columns([1, 3])
 with col_submit:
-    submit_query = st.button("⚡ Run ARIA Analysis", type="primary", use_container_width=True)
+    submit_query = st.button("Run ARIA Analysis", type="primary", use_container_width=True)
 
 # 7. Pipeline Execution & Results
 if submit_query:
     query_text = user_question.strip()
     if not query_text:
-        st.warning("⚠️ Please enter a question or observation before submitting.")
+        st.warning("Please enter a question or observation before submitting.")
     else:
         st.session_state.current_question = query_text
 
         # Execution Progress Status
-        with st.status("🔍 **ARIA Pipeline Processing...**", expanded=True) as status_box:
-            st.write("1️⃣ Performing Hybrid Vector (ChromaDB) + Keyword (BM25) Retrieval...")
+        with st.status("ARIA Pipeline Processing...", expanded=True) as status_box:
+            st.write("Step 1: Performing Hybrid Vector (ChromaDB) + Keyword (BM25) Retrieval...")
             time.sleep(0.3)
-            st.write("2️⃣ Synthesizing Contextual Answer via Local Llama 3.2 3B...")
+            st.write("Step 2: Synthesizing Contextual Answer via Local Llama 3.2 3B...")
             time.sleep(0.3)
-            st.write("3️⃣ Running Quality Evaluation & Self-Healing Audit...")
+            st.write("Step 3: Running Quality Evaluation & Self-Healing Audit...")
 
             try:
                 response = requests.post(
@@ -287,32 +287,32 @@ if submit_query:
                 )
                 response.raise_for_status()
                 result = response.json()
-                status_box.update(label="✅ **Analysis Completed Successfully!**", state="complete", expanded=False)
+                status_box.update(label="Analysis Completed Successfully", state="complete", expanded=False)
             except requests.exceptions.RequestException as e:
-                status_box.update(label="❌ **Backend Connection Failed**", state="error", expanded=True)
+                status_box.update(label="Backend Connection Failed", state="error", expanded=True)
                 st.error(f"Could not connect to ARIA backend: {e}")
                 st.stop()
 
         st.markdown("---")
 
         # 8. Executive Telemetry Row
-        st.markdown("### 📊 **Executive Telemetry & Verification Audit**")
+        st.markdown("### **Executive Telemetry & Verification Audit**")
 
         m1, m2, m3, m4 = st.columns(4)
 
         conf_val = result.get("confidence", 0.0)
-        m1.metric("🎯 Confidence Score", f"{conf_val:.1%}")
+        m1.metric("Confidence Score", f"{conf_val:.1%}")
 
         lat_sec = result.get("latency_ms", 0) / 1000.0
-        m2.metric("⚡ Response Latency", f"{lat_sec:.1f}s")
+        m2.metric("Response Latency", f"{lat_sec:.1f}s")
 
         passed = result.get("passed", False)
         healing_triggered = result.get("healing_triggered", False)
 
-        m3.metric("🛡️ Quality Gate", "PASSED ✅" if passed else "REVIEW ⚠️")
+        m3.metric("Quality Gate", "PASSED" if passed else "REVIEW REQUIRED")
 
         healing_attempts = result.get("healing_attempts", 0)
-        m4.metric("🔄 Healing Cycles", f"{healing_attempts} attempt(s)")
+        m4.metric("Self-Healing Iterations", f"{healing_attempts} attempt(s)")
 
         st.markdown("---")
 
@@ -321,7 +321,7 @@ if submit_query:
 
         with col_main:
             with st.container(border=True):
-                st.markdown("### 🛡️ **ARIA Security Analysis**")
+                st.markdown("### **ARIA Security Analysis**")
                 st.markdown(result.get("answer", "No response generated."))
 
                 st.markdown("---")
@@ -342,7 +342,7 @@ if submit_query:
 {json.dumps(result.get('scores', {}), indent=2)}
 """
                 st.download_button(
-                    label="📥 Download Audit Report (.md)",
+                    label="Download Audit Report (.md)",
                     data=report_md,
                     file_name=f"aria_security_report_{int(time.time())}.md",
                     mime="text/markdown",
@@ -351,7 +351,7 @@ if submit_query:
 
         with col_diag:
             with st.container(border=True):
-                st.markdown("### ⚙️ **Quality Metrics**")
+                st.markdown("### **Quality Metrics**")
                 scores = result.get("scores", {})
                 if isinstance(scores, dict):
                     for m_name, s_val in scores.items():
@@ -360,21 +360,21 @@ if submit_query:
                             st.progress(min(max(float(s_val), 0.0), 1.0), text=f"{s_val:.2f}")
 
                 st.markdown("---")
-                st.markdown("### 🔄 **Self-Healing Audit**")
+                st.markdown("### **Self-Healing Audit**")
 
                 if healing_triggered:
-                    st.warning(f"⚠️ **Self-Healing Activated**: Initial context retrieval fell below confidence thresholds. ARIA automatically executed {healing_attempts} repair cycle(s).")
+                    st.warning(f"Self-Healing Activated: Initial context retrieval fell below confidence thresholds. ARIA automatically executed {healing_attempts} repair cycle(s).")
                     strategies = result.get("strategies_used", [])
                     if strategies:
                         st.markdown("**Strategies Executed:**")
                         for strat in strategies:
-                            st.markdown(f"- 🔧 `{strat}`")
+                            st.markdown(f"- `{strat}`")
                 else:
-                    st.success("✅ **Direct Verification Passed**: High-confidence context retrieved on initial turn. No healing intervention required.")
+                    st.success("Direct Verification Passed: High-confidence context retrieved on initial turn. No healing intervention required.")
 
 # Sidebar optional extra reference
 with st.sidebar:
-    st.markdown("## 🛡️ **ARIA Info**")
+    st.markdown("## **ARIA Info**")
     st.caption("Self-Healing Cybersecurity RAG Engine")
     st.markdown("""
     - **LLM Engine**: Llama 3.2 3B
