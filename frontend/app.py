@@ -1,7 +1,7 @@
 """
 app.py
 Streamlit frontend for ARIA - Autonomous Risk & Incident Assistant.
-Full main-page SOC dashboard layout designed for Hugging Face Spaces.
+Full main-page SOC dashboard layout with custom HTML badge styling.
 """
 
 import streamlit as st
@@ -33,6 +33,15 @@ st.markdown("""
     /* Force readable text colors */
     .stMarkdown, p, span, label, h1, h2, h3, h4, h5, h6 {
         color: #F8FAFC !important;
+    }
+
+    /* Global override for inline code snippets to prevent ugly white badges */
+    code {
+        background-color: #1E293B !important;
+        color: #38BDF8 !important;
+        border: 1px solid #334155 !important;
+        padding: 2px 6px !important;
+        border-radius: 4px !important;
     }
 
     /* Dark Mode Text Input Area */
@@ -85,9 +94,6 @@ st.markdown("""
         border-radius: 12px;
         padding: 20px 24px;
         margin-bottom: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
 
     .header-title {
@@ -119,29 +125,32 @@ def check_backend_health():
         return False
 
 
-# 3. Main Header Banner with Live Status Badges
+# 3. Main Header Banner & Clean Styled Status Bar
 backend_online = check_backend_health()
-status_badge = "🟢 ONLINE" if backend_online else "🟡 LOCAL READY"
+status_color = "#10B981" if backend_online else "#F59E0B"
+status_text = "🟢 ONLINE" if backend_online else "🟡 LOCAL READY"
 
 st.markdown(f"""
 <div class="header-banner">
-    <div>
-        <div class="header-title">🛡️ ARIA — Autonomous Cybersecurity Copilot</div>
-        <div class="header-sub">Self-Healing RAG Architecture • Incident Triage & Knowledge Intelligence</div>
+    <div class="header-title">🛡️ ARIA — Autonomous Cybersecurity Copilot</div>
+    <div class="header-sub">Self-Healing RAG Architecture • Incident Triage & Knowledge Intelligence</div>
+</div>
+
+<div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+    <div style="background: #1E293B; border: 1px solid #334155; padding: 8px 16px; border-radius: 8px; font-size: 0.88rem;">
+        <span style="color: #94A3B8;">Backend Status:</span> <strong style="color: {status_color}; margin-left: 6px;">{status_text}</strong>
+    </div>
+    <div style="background: #1E293B; border: 1px solid #334155; padding: 8px 16px; border-radius: 8px; font-size: 0.88rem;">
+        <span style="color: #94A3B8;">LLM Model:</span> <strong style="color: #38BDF8; margin-left: 6px;">Llama 3.2 3B</strong>
+    </div>
+    <div style="background: #1E293B; border: 1px solid #334155; padding: 8px 16px; border-radius: 8px; font-size: 0.88rem;">
+        <span style="color: #94A3B8;">Vector Store:</span> <strong style="color: #818CF8; margin-left: 6px;">ChromaDB + BM25</strong>
+    </div>
+    <div style="background: #1E293B; border: 1px solid #334155; padding: 8px 16px; border-radius: 8px; font-size: 0.88rem;">
+        <span style="color: #94A3B8;">Self-Healing Engine:</span> <strong style="color: #34D399; margin-left: 6px;">⚡ ACTIVE</strong>
     </div>
 </div>
 """, unsafe_allow_html=True)
-
-# Status Pill Badges Row
-st_col1, st_col2, st_col3, st_col4 = st.columns(4)
-with st_col1:
-    st.markdown(f"**Backend Status**: `{status_badge}`")
-with st_col2:
-    st.markdown("**LLM Model**: `Llama 3.2 3B`")
-with st_col3:
-    st.markdown("**Vector Store**: `ChromaDB + BM25`")
-with st_col4:
-    st.markdown("**Self-Healing Engine**: `ACTIVE`")
 
 st.markdown("---")
 
@@ -149,7 +158,7 @@ st.markdown("---")
 if "current_question" not in st.session_state:
     st.session_state.current_question = ""
 
-# 4. Analysis Mode Selection (Main Canvas)
+# 4. Analysis Mode Selection
 st.markdown("### 🎯 **1. Select Analysis Mode**")
 
 mode_selection = st.radio(
@@ -161,13 +170,13 @@ mode_selection = st.radio(
 )
 
 if mode_selection == "qa":
-    st.info("💡 **Q&A Mode**: Ask about MITRE ATT&CK techniques, security controls, CVE details, and defensive best practices.")
+    st.info("💡 **Q&A Mode**: Query MITRE ATT&CK techniques, security controls, CVE details, and defensive concepts.")
 else:
     st.warning("🚨 **SOC Triage Mode**: Input raw endpoint alerts, command logs, or anomalous behavior for rapid incident analysis.")
 
 st.markdown("---")
 
-# 5. Quick Preset Prompts (Main Canvas Row)
+# 5. Quick Preset Prompts
 st.markdown("### 🚀 **2. Preset Demo Scenarios (One-Click Load)**")
 st.caption("Click any button below to instantly load a real-world scenario:")
 
