@@ -109,6 +109,14 @@ st.markdown("""
         border-color: #2563EB !important;
     }
 
+    /* Status Box Widget Header Fix */
+    div[data-testid="stStatusWidget"], summary, details {
+        background-color: #1E293B !important;
+        color: #F8FAFC !important;
+        border: 1px solid #334155 !important;
+        border-radius: 8px !important;
+    }
+
     /* Metric Cards */
     div[data-testid="stMetric"] {
         background-color: #1E293B !important;
