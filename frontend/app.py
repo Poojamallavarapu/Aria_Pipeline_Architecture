@@ -1,7 +1,7 @@
 """
 app.py
 Streamlit frontend for ARIA - Autonomous Risk & Incident Assistant.
-Full main-page SOC dashboard layout with custom HTML badge styling.
+Full main-page SOC dashboard layout with custom HTML badge styling and fixed download button CSS.
 """
 
 import streamlit as st
@@ -35,7 +35,7 @@ st.markdown("""
         color: #F8FAFC !important;
     }
 
-    /* Global override for inline code snippets to prevent ugly white badges */
+    /* Global override for inline code snippets */
     code {
         background-color: #1E293B !important;
         color: #38BDF8 !important;
@@ -58,20 +58,55 @@ st.markdown("""
         box-shadow: 0 0 0 1px #38BDF8 !important;
     }
 
-    /* Primary Action Buttons */
-    .stButton > button {
-        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
-        color: #FFFFFF !important;
-        font-weight: 600 !important;
+    /* General Button Styling (Default / Secondary / Preset Prompt Buttons) */
+    .stButton > button, div[data-testid="stButton"] > button {
+        background-color: #1E293B !important;
+        background: #1E293B !important;
+        color: #F8FAFC !important;
+        font-weight: 500 !important;
         border-radius: 8px !important;
-        border: none !important;
+        border: 1px solid #334155 !important;
         padding: 8px 16px !important;
         transition: all 0.2s ease !important;
     }
 
-    .stButton > button:hover {
+    .stButton > button:hover, div[data-testid="stButton"] > button:hover {
+        background-color: #334155 !important;
+        border-color: #38BDF8 !important;
+        color: #38BDF8 !important;
+    }
+
+    /* Primary Action Button ("Ask ARIA") */
+    .stButton > button[kind="primary"], button[kind="primary"] {
+        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
+        color: #FFFFFF !important;
+        font-weight: 600 !important;
+        border: none !important;
+        box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39) !important;
+    }
+
+    .stButton > button[kind="primary"]:hover, button[kind="primary"]:hover {
         background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%) !important;
-        transform: translateY(-1px);
+        color: #FFFFFF !important;
+        transform: translateY(-1px) !important;
+    }
+
+    /* Download Button Specific Styling Fix */
+    div[data-testid="stDownloadButton"] > button {
+        background-color: #1E293B !important;
+        background: #1E293B !important;
+        color: #38BDF8 !important;
+        font-weight: 600 !important;
+        border: 1px solid #334155 !important;
+        border-radius: 8px !important;
+        padding: 10px 20px !important;
+        transition: all 0.2s ease !important;
+    }
+
+    div[data-testid="stDownloadButton"] > button:hover {
+        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
+        color: #FFFFFF !important;
+        border-color: #2563EB !important;
     }
 
     /* Metric Cards */
